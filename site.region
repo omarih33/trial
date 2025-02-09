@@ -11,38 +11,32 @@
     <!-- Windows 98 Styles -->
     <link rel="stylesheet" href="https://unpkg.com/98.css">
     <link rel="stylesheet" href="/styles/windows.css">
-    <script src="/scripts/windows.js"></script>
-
-    <!-- jQuery for Dragging Windows -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body id="{squarespace.page-id}" class="desktop">
     
     <!-- Windows 98 Desktop -->
-   <div id="desktop">
-    {.section collection}
-        <div class="desktop-icon" ondblclick="openPageInWindow('{permalink}', '{title}')">
-            <img src="{imageUrl}" alt="{title}">
-            <p>{title}</p>
-        </div>
-    {.end}
-</div>
+    <div id="desktop">
+        {.section collection}
+            <div class="desktop-icon" ondblclick="openPageInWindow('{permalink}', '{title}')">
+                <img src="{image}" alt="{title}">
+                <p>{title}</p>
+            </div>
+        {.end}
+    </div>
 
-        
-        <!-- Example About Window -->
-        <div class="window" id="about-window" style="display: none; top: 100px; left: 200px;">
-            <div class="title-bar">
-                <div class="title-bar-text">About</div>
-                <div class="title-bar-controls">
-                    <button aria-label="Close" onclick="closeWindow('about-window')"></button>
-                </div>
+    <!-- Example About Window -->
+    <div class="window" id="about-window" style="display: none; top: 100px; left: 200px;">
+        <div class="title-bar">
+            <div class="title-bar-text">About</div>
+            <div class="title-bar-controls">
+                <button aria-label="Close" onclick="closeWindow('about-window')"></button>
             </div>
-            <div class="window-body">
-                <p>Welcome to my Windows 98-themed site!</p>
-            </div>
+        </div>
+        <div class="window-body">
+            <p>Welcome to my Windows 98-themed site!</p>
         </div>
     </div>
-    
+
     <!-- Windows 98 Taskbar -->
     <div id="taskbar">
         <div id="start-button" onclick="toggleStartMenu()">Start</div>
@@ -54,22 +48,28 @@
         </div>
         <div id="clock">??:?? AM</div>
     </div>
-    
+
     <!-- JavaScript for Interactions -->
     <script>
         function toggleStartMenu() {
             var menu = document.getElementById('start-menu');
             menu.style.display = (menu.style.display === 'none') ? 'block' : 'none';
         }
-        
+
         function openWindow(id) {
             document.getElementById(id).style.display = 'block';
         }
-        
+
         function closeWindow(id) {
             document.getElementById(id).style.display = 'none';
         }
     </script>
+
+    <!-- jQuery for Dragging Windows -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Custom Windows 98 JavaScript -->
+    <script src="/scripts/windows.js"></script>
+
 </body>
 </html>
-
