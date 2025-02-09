@@ -10,7 +10,7 @@
     
     <!-- Windows 98 Styles -->
     <link rel="stylesheet" href="https://unpkg.com/98.css">
-    <link rel="stylesheet" href="/assets/windows.css">
+    <link rel="stylesheet" href="/styles/windows.css">
     
     <!-- jQuery for Dragging Windows -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
