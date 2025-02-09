@@ -18,31 +18,15 @@
 <body id="{squarespace.page-id}" class="desktop">
     
     <!-- Windows 98 Desktop -->
-    <div id="desktop">
-        
-        <!-- Example Desktop Icons -->
-        <div class="desktop-icon" ondblclick="openWindow('content-window')">
-            <img src="/assets/my-computer.png" alt="My Computer">
-            <p>My Computer</p>
+   <div id="desktop">
+    {.section collection}
+        <div class="desktop-icon" ondblclick="openPageInWindow('{permalink}', '{title}')">
+            <img src="{imageUrl}" alt="{title}">
+            <p>{title}</p>
         </div>
-        
-        <div class="desktop-icon" ondblclick="openWindow('about-window')">
-            <img src="/assets/info.png" alt="About">
-            <p>About</p>
-        </div>
-        
-        <!-- Squarespace Content Window -->
-        <div class="window" id="content-window" style="display: none; top: 50px; left: 100px;">
-            <div class="title-bar">
-                <div class="title-bar-text">Content</div>
-                <div class="title-bar-controls">
-                    <button aria-label="Close" onclick="closeWindow('content-window')"></button>
-                </div>
-            </div>
-            <div class="window-body">
-                {squarespace.main-content}
-            </div>
-        </div>
+    {.end}
+</div>
+
         
         <!-- Example About Window -->
         <div class="window" id="about-window" style="display: none; top: 100px; left: 200px;">
