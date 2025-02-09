@@ -61,3 +61,55 @@ document.addEventListener("DOMContentLoaded", function () {
     windowElement.style.zIndex = "100";
   }
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+  // Make internal links open in a window instead of navigating away
+  document.querySelectorAll("a").forEach(link => {
+    if (link.hostname === window.location.hostname) { // Ensure it's an internal link
+      link.addEventListener("click", function (event) {
+        event.preventDefault();
+        openPageInWindow(this.href, this.innerText);
+      });
+    }
+  });
+});
+
+// Function to open a new window with the page content
+function openPageInWindow(url, title) {
+  fetch(url)
+    .then(response => response.text())
+    .then(html => {
+      let parser = new DOMParser();
+      let doc = parser.parseFromString(html, "text/html");
+      let content = doc.querySelector("[data-content-field='main-content']").innerHTML;
+
+      let windowId = "window-" + Date.now();
+      createNewWindow(windowId, title, content);
+    })
+    .catch(error => console.error("Error loading page:", error));
+}
+
+// Function to create a new draggable window
+function createNewWindow(id, title, content) {
+  let newWindow = document.createElement("div");
+  newWindow.classList.add("window");
+  newWindow.id = id;
+  newWindow.innerHTML = `
+    <div class="title-bar">
+      <div class="title-bar-text">${title}</div>
+      <div class="title-bar-controls">
+        <button aria-label="Close" onclick="document.getElementById('${id}').remove()"></button>
+      </div>
+    </div>
+    <div class="window-body">
+      ${content}
+    </div>
+  `;
+  
+  document.getElementById("desktop").appendChild(newWindow);
+  newWindow.style.display = "block";
+  newWindow.style.top = "50px";
+  newWindow.style.left = "100px";
+  bringToFront(newWindow);
+}
+
