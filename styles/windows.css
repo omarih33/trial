@@ -1,0 +1,137 @@
+/* Load 98.css */
+@import url("https://unpkg.com/98.css");
+
+/* Full-screen desktop background */
+body {
+  background: teal;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  overflow: hidden;
+  font-family: "MS Sans Serif", Tahoma, Geneva, sans-serif;
+}
+
+/* Desktop Container */
+.desktop {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, #008080, #004040);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  padding: 10px;
+}
+
+/* Desktop Icons */
+.desktop-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80px;
+  text-align: center;
+  cursor: pointer;
+  margin: 10px;
+}
+
+.desktop-icon img {
+  width: 48px;
+  height: 48px;
+}
+
+.desktop-icon p {
+  margin: 4px 0 0;
+  font-size: 12px;
+  color: white;
+  text-shadow: 1px 1px black;
+}
+
+/* Windows */
+.window {
+  position: absolute;
+  width: 400px;
+  height: 300px;
+  background: white;
+  border: 2px solid black;
+  box-shadow: 5px 5px gray;
+  display: none;
+}
+
+.window .title-bar {
+  cursor: move;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3px 8px;
+  background: navy;
+  color: white;
+}
+
+.window .title-bar-buttons button {
+  border: none;
+  background: gray;
+  color: black;
+  font-size: 12px;
+  padding: 2px 6px;
+  cursor: pointer;
+}
+
+.window .content {
+  padding: 10px;
+  font-size: 14px;
+  height: calc(100% - 24px);
+  overflow: auto;
+}
+
+/* Taskbar */
+.taskbar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 40px;
+  background: #c0c0c0;
+  border-top: 2px solid white;
+  border-bottom: 2px solid black;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
+/* Start Button */
+.start-button {
+  background: #c0c0c0;
+  padding: 4px 12px;
+  border: 2px solid gray;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Start Menu */
+.start-menu {
+  position: absolute;
+  bottom: 40px;
+  left: 10px;
+  width: 200px;
+  background: #c0c0c0;
+  border: 2px solid black;
+  box-shadow: 3px 3px gray;
+  display: none;
+}
+
+.start-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.start-menu li {
+  padding: 8px;
+  cursor: pointer;
+}
+
+.start-menu li:hover {
+  background: navy;
+  color: white;
+}
